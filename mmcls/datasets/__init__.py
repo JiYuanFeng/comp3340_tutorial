@@ -11,6 +11,8 @@ from .mnist import MNIST, FashionMNIST
 from .multi_label import MultiLabelDataset
 from .samplers import DistributedSampler, RepeatAugSampler
 from .voc import VOC
+from .cxr14 import CXR14
+
 
 __all__ = [
     'BaseDataset', 'ImageNet', 'CIFAR10', 'CIFAR100', 'MNIST', 'FashionMNIST',
