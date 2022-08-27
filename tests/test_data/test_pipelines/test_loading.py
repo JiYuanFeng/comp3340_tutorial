@@ -4,7 +4,7 @@ import os.path as osp
 
 import numpy as np
 
-from mmcls.datasets.pipelines import LoadImageFromFile
+from openprotein.datasets.pipelines import LoadImageFromFile
 
 
 class TestLoading(object):

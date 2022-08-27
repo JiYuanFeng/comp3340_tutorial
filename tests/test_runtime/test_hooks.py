@@ -11,7 +11,7 @@ from mmcv.runner import build_runner
 from mmcv.runner.hooks import Hook, IterTimerHook
 from torch.utils.data import DataLoader
 
-import mmcls.core  # noqa: F401
+import openprotein.core  # noqa: F401
 
 
 def _build_demo_runner_without_hook(runner_type='EpochBasedRunner',

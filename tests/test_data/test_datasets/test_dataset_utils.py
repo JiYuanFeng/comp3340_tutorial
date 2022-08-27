@@ -3,7 +3,7 @@ import os.path as osp
 import random
 import string
 
-from mmcls.datasets.utils import check_integrity, rm_suffix
+from openprotein.datasets.utils import check_integrity, rm_suffix
 
 
 def test_dataset_utils():

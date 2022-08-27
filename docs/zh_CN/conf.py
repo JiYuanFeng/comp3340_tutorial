@@ -26,7 +26,7 @@ copyright = '2020, OpenMMLab'
 author = 'MMClassification Authors'
 
 # The full version, including alpha/beta/rc tags
-version_file = '../../mmcls/version.py'
+version_file = '../../openprotein/version.py'
 
 
 def get_version():
@@ -160,7 +160,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'mmcls.tex', 'MMClassification Documentation', author,
+    (master_doc, 'openprotein.tex', 'MMClassification Documentation', author,
      'manual'),
 ]
 
@@ -168,7 +168,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'mmcls', 'MMClassification Documentation', [author],
+man_pages = [(master_doc, 'openprotein', 'MMClassification Documentation', [author],
               1)]
 
 # -- Options for Texinfo output ----------------------------------------------
@@ -177,7 +177,7 @@ man_pages = [(master_doc, 'mmcls', 'MMClassification Documentation', [author],
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'mmcls', 'MMClassification Documentation', author, 'mmcls',
+    (master_doc, 'openprotein', 'MMClassification Documentation', author, 'openprotein',
      'OpenMMLab image classification toolbox and benchmark.', 'Miscellaneous'),
 ]
 

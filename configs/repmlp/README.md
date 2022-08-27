@@ -48,9 +48,9 @@ python tools/test.py ${Deploy_CFG} ${Deploy_Checkpoint} --metrics accuracy
 Use `backbone.switch_to_deploy()` or `classificer.backbone.switch_to_deploy()` to switch to the deploy mode. For example:
 
 ```python
-from mmcls.models import build_backbone
+from openprotein.models import build_backbone
 
-backbone_cfg=dict(type='RepMLPNet', arch='B', img_size=224, reparam_conv_kernels=(1, 3), deploy=False)
+backbone_cfg = dict(type='RepMLPNet', arch='B', img_size=224, reparam_conv_kernels=(1, 3), deploy=False)
 backbone = build_backbone(backbone_cfg)
 backbone.switch_to_deploy()
 ```
@@ -58,7 +58,7 @@ backbone.switch_to_deploy()
 or
 
 ```python
-from mmcls.models import build_classifier
+from openprotein.models import build_classifier
 
 cfg = dict(
     type='ImageClassifier',

@@ -4,9 +4,9 @@ import torch
 from torch.nn.modules import AvgPool2d
 from torch.nn.modules.batchnorm import _BatchNorm
 
-from mmcls.models.backbones import SEResNet
-from mmcls.models.backbones.resnet import ResLayer
-from mmcls.models.backbones.seresnet import SEBottleneck, SELayer
+from openprotein.models.backbones import SEResNet
+from openprotein.models.backbones.resnet import ResLayer
+from openprotein.models.backbones.seresnet import SEBottleneck, SELayer
 
 
 def all_zeros(modules):

@@ -13,9 +13,9 @@ from numpy.testing import assert_array_almost_equal, assert_array_equal
 from PIL import Image
 from torchvision import transforms
 
-import mmcls.datasets.pipelines.transforms as mmcls_transforms
-from mmcls.datasets.builder import PIPELINES
-from mmcls.datasets.pipelines import Compose
+import openprotein.datasets.pipelines.transforms as mmcls_transforms
+from openprotein.datasets.builder import PIPELINES
+from openprotein.datasets.pipelines import Compose
 
 
 def construct_toy_data():

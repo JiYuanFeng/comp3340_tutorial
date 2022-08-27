@@ -105,7 +105,7 @@ train_pipeline = [
    字典作为输入，并返回一个字典。
 
    ```python
-   from mmcls.datasets import PIPELINES
+   from openprotein.datasets import PIPELINES
 
    @PIPELINES.register_module()
    class MyTransform(object):

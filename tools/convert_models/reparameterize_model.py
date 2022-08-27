@@ -4,8 +4,8 @@ from pathlib import Path
 
 import torch
 
-from mmcls.apis import init_model
-from mmcls.models.classifiers import ImageClassifier
+from openprotein.apis import init_model
+from openprotein.models.classifiers import ImageClassifier
 
 
 def convert_classifier_to_deploy(model, save_path):
@@ -46,7 +46,7 @@ def main():
     model = init_model(
         args.config_path, checkpoint=args.checkpoint_path, device='cpu')
     assert isinstance(model, ImageClassifier), \
-        '`model` must be a `mmcls.classifiers.ImageClassifier` instance.'
+        '`model` must be a `openprotein.classifiers.ImageClassifier` instance.'
 
     convert_classifier_to_deploy(model, args.save_path)
 

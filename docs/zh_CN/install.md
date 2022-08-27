@@ -80,7 +80,7 @@ git checkout dev
 直接使用 pip 安装即可。
 
 ```shell
-pip install mmcls
+pip install openprotein
 ```
 
 ## 验证安装
@@ -90,7 +90,7 @@ pip install mmcls
 **第 1 步** 我们需要下载配置文件和模型权重文件
 
 ```shell
-mim download mmcls --config resnet50_8xb32_in1k --dest .
+mim download openprotein --config resnet50_8xb32_in1k --dest .
 ```
 
 **第 2 步** 验证示例的推理流程
@@ -107,7 +107,7 @@ python demo/image_demo.py demo/demo.JPEG resnet50_8xb32_in1k.py resnet50_8xb32_i
 如果你是**作为 PyThon 包安装**，那么可以打开你的 Python 解释器，并粘贴如下代码：
 
 ```python
-from mmcls.apis import init_model, inference_model
+from openprotein.apis import init_model, inference_model
 
 config_file = 'resnet50_8xb32_in1k.py'
 checkpoint_file = 'resnet50_8xb32_in1k_20210831-ea4938fc.pth'
@@ -178,8 +178,9 @@ MMClassification 中几乎所有的模型都不会依赖这些算子。
 **第 3 步** 验证
 
 ```python
-import mmcls
-print(mmcls.__version__)
+import openprotein
+
+print(openprotein.__version__)
 # 预期输出： 0.23.0 或更新的版本号
 ```
 

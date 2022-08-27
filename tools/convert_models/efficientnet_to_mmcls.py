@@ -7,7 +7,7 @@ import torch
 from mmcv.runner import Sequential
 from tensorflow.python.training import py_checkpoint_reader
 
-from mmcls.models.backbones.efficientnet import EfficientNet
+from openprotein.models.backbones.efficientnet import EfficientNet
 
 
 def tf2pth(v):

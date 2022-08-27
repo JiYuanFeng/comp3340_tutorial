@@ -272,14 +272,14 @@ class MyOptimizer(Optimizer):
   新定义的模块应导入到 `mmcls/core/optimizer/__init__.py` 中，以便注册器能找到新模块并将其添加：
 
 ```python
-# 在 mmcls/core/optimizer/__init__.py 中
+# 在 openprotein/core/optimizer/__init__.py 中
 from .my_optimizer import MyOptimizer # MyOptimizer 是我们自定义的优化器的名字
 
 __all__ = ['MyOptimizer']
 ```
 
 ```python
-# 在 mmcls/core/__init__.py 中
+# 在 openprotein/core/__init__.py 中
 ...
 from .optimizer import *  # noqa: F401, F403
 ```
@@ -287,7 +287,7 @@ from .optimizer import *  # noqa: F401, F403
 - 在配置中使用 `custom_imports` 手动导入
 
 ```python
-custom_imports = dict(imports=['mmcls.core.optimizer.my_optimizer'], allow_failed_imports=False)
+custom_imports = dict(imports=['openprotein.core.optimizer.my_optimizer'], allow_failed_imports=False)
 ```
 
 `mmcls.core.optimizer.my_optimizer` 模块将会在程序开始阶段被导入，`MyOptimizer` 类会随之自动被注册。

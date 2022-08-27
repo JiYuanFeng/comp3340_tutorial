@@ -41,7 +41,7 @@ def convert_van(ckpt):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Convert keys in pretrained van models to mmcls style.')
+        description='Convert keys in pretrained van models to openprotein style.')
     parser.add_argument('src', help='src model path or url')
     # The dst path must be a full path of the new checkpoint.
     parser.add_argument('dst', help='save path')

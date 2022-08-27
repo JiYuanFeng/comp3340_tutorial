@@ -12,9 +12,9 @@ from mmcv import Config, DictAction
 from mmcv.utils import to_2tuple
 from torch.nn import BatchNorm1d, BatchNorm2d, GroupNorm, LayerNorm
 
-from mmcls import digit_version
-from mmcls.apis import init_model
-from mmcls.datasets.pipelines import Compose
+from openprotein import digit_version
+from openprotein.apis import init_model
+from openprotein.datasets.pipelines import Compose
 
 try:
     from pytorch_grad_cam import (EigenCAM, EigenGradCAM, GradCAM,
@@ -189,7 +189,7 @@ def apply_transforms(img_path, pipeline_cfg):
 
 
 class MMActivationsAndGradients(ActivationsAndGradients):
-    """Activations and gradients manager for mmcls models."""
+    """Activations and gradients manager for openprotein models."""
 
     def __call__(self, x):
         self.gradients = []
@@ -199,7 +199,7 @@ class MMActivationsAndGradients(ActivationsAndGradients):
 
 
 def init_cam(method, model, target_layers, use_cuda, reshape_transform):
-    """Construct the CAM object once, In order to be compatible with mmcls,
+    """Construct the CAM object once, In order to be compatible with openprotein,
     here we modify the ActivationsAndGradients object."""
 
     GradCAM_Class = METHOD_MAP[method.lower()]

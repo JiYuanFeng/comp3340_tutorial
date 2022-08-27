@@ -6,7 +6,7 @@ from pathlib import Path
 
 from mmcv import Config, DictAction, track_parallel_progress, track_progress
 
-from mmcls.datasets import PIPELINES, build_dataset
+from openprotein.datasets import PIPELINES, build_dataset
 
 
 def parse_args():

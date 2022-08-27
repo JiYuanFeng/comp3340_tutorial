@@ -12,7 +12,7 @@ from mmcv.utils.registry import build_from_cfg
 from torch.autograd import Variable
 from torch.optim.optimizer import Optimizer
 
-import mmcls.core  # noqa: F401
+import openprotein.core  # noqa: F401
 
 base_lr = 0.01
 base_wd = 0.0001

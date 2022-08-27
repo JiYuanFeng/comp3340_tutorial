@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 
 import numpy as np
 
-from mmcls.datasets import BaseDataset, RepeatAugSampler, build_sampler
+from openprotein.datasets import BaseDataset, RepeatAugSampler, build_sampler
 
 
 @patch.multiple(BaseDataset, __abstractmethods__=set())
@@ -19,14 +19,14 @@ def construct_toy_single_label_dataset(length):
     return dataset, cat_ids_list
 
 
-@patch('mmcls.datasets.samplers.repeat_aug.get_dist_info', return_value=(0, 1))
+@patch('openprotein.datasets.samplers.repeat_aug.get_dist_info', return_value=(0, 1))
 def test_sampler_builder(_):
     assert build_sampler(None) is None
     dataset = construct_toy_single_label_dataset(1000)[0]
     build_sampler(dict(type='RepeatAugSampler', dataset=dataset))
 
 
-@patch('mmcls.datasets.samplers.repeat_aug.get_dist_info', return_value=(0, 1))
+@patch('openprotein.datasets.samplers.repeat_aug.get_dist_info', return_value=(0, 1))
 def test_rep_aug(_):
     dataset = construct_toy_single_label_dataset(1000)[0]
     ra = RepeatAugSampler(dataset, selected_round=0, shuffle=False)
@@ -43,7 +43,7 @@ def test_rep_aug(_):
             assert content == val
 
 
-@patch('mmcls.datasets.samplers.repeat_aug.get_dist_info', return_value=(0, 2))
+@patch('openprotein.datasets.samplers.repeat_aug.get_dist_info', return_value=(0, 2))
 def test_rep_aug_dist(_):
     dataset = construct_toy_single_label_dataset(1000)[0]
     ra = RepeatAugSampler(dataset, selected_round=0, shuffle=False)

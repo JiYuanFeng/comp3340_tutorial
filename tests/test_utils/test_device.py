@@ -4,7 +4,7 @@ from unittest.mock import patch
 
 import mmcv
 
-from mmcls.utils import auto_select_device
+from openprotein.utils import auto_select_device
 
 
 class TestAutoSelectDevice(TestCase):

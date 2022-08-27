@@ -11,7 +11,7 @@ from mmcv.runner import obj_from_dict
 from mmcv.runner.hooks import DistEvalHook, EvalHook
 from torch.utils.data import DataLoader, Dataset
 
-from mmcls.apis import single_gpu_test
+from openprotein.apis import single_gpu_test
 
 
 class ExampleDataset(Dataset):
@@ -120,7 +120,7 @@ def multi_gpu_test(model, data_loader, tmpdir=None, gpu_collect=False):
     return results
 
 
-@patch('mmcls.apis.multi_gpu_test', multi_gpu_test)
+@patch('openprotein.apis.multi_gpu_test', multi_gpu_test)
 def test_dist_eval_hook():
     with pytest.raises(TypeError):
         test_dataset = ExampleModel()
@@ -162,7 +162,7 @@ def test_dist_eval_hook():
         p.stop()
 
 
-@patch('mmcls.apis.multi_gpu_test', multi_gpu_test)
+@patch('openprotein.apis.multi_gpu_test', multi_gpu_test)
 def test_dist_eval_hook_epoch():
     with pytest.raises(TypeError):
         test_dataset = ExampleModel()

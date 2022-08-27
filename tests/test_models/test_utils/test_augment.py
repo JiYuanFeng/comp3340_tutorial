@@ -2,7 +2,7 @@
 import pytest
 import torch
 
-from mmcls.models.utils import Augments
+from openprotein.models.utils import Augments
 
 augment_cfgs = [
     dict(type='BatchCutMix', alpha=1., prob=1.),

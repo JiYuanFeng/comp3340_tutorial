@@ -5,7 +5,7 @@ from pathlib import Path
 
 import torch
 
-from mmcls.apis import init_model
+from openprotein.apis import init_model
 
 bright_style, reset_style = '\x1b[1m', '\x1b[0m'
 red_text, blue_text = '\x1b[31m', '\x1b[34m'

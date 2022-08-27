@@ -3,7 +3,7 @@ import pytest
 import torch
 from mmcv.utils.parrots_wrapper import _BatchNorm
 
-from mmcls.models.backbones import ResNet_CIFAR
+from openprotein.models.backbones import ResNet_CIFAR
 
 
 def check_norm_state(modules, train_state):

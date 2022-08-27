@@ -6,7 +6,7 @@ import platform
 import cv2
 from mmcv import Config
 
-from mmcls.utils import setup_multi_processes
+from openprotein.utils import setup_multi_processes
 
 
 def test_setup_multi_processes():

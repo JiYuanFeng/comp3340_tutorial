@@ -2,7 +2,7 @@
 import pytest
 import torch
 
-from mmcls.models import build_loss
+from openprotein.models import build_loss
 
 
 def test_asymmetric_loss():

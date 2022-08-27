@@ -8,7 +8,7 @@ from unittest import TestCase
 import torch
 from mmcv.runner import load_checkpoint, save_checkpoint
 
-from mmcls.models.backbones import T2T_ViT
+from openprotein.models.backbones import T2T_ViT
 from .utils import timm_resize_pos_embed
 
 

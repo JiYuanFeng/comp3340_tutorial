@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 
 import mmcv
 
-from mmcls.apis import inference_model, init_model, show_result_pyplot
+from openprotein.apis import inference_model, init_model, show_result_pyplot
 
 
 def main():

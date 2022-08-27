@@ -9,9 +9,9 @@ from unittest.mock import patch
 import numpy as np
 import torch
 
-from mmcls.datasets import DATASETS
-from mmcls.datasets import BaseDataset as _BaseDataset
-from mmcls.datasets import MultiLabelDataset as _MultiLabelDataset
+from openprotein.datasets import DATASETS
+from openprotein.datasets import BaseDataset as _BaseDataset
+from openprotein.datasets import MultiLabelDataset as _MultiLabelDataset
 
 ASSETS_ROOT = osp.abspath(
     osp.join(osp.dirname(__file__), '../../data/dataset'))

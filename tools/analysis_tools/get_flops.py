@@ -4,7 +4,7 @@ import argparse
 from mmcv import Config
 from mmcv.cnn.utils import get_model_complexity_info
 
-from mmcls.models import build_classifier
+from openprotein.models import build_classifier
 
 
 def parse_args():

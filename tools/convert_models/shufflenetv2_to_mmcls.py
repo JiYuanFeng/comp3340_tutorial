@@ -71,7 +71,7 @@ def convert_block(model_key, model_weight, state_dict, converted_names):
 
 
 def convert(src, dst):
-    """Convert keys in torchvision pretrained ShuffleNetV2 models to mmcls
+    """Convert keys in torchvision pretrained ShuffleNetV2 models to openprotein
     style."""
 
     # load pytorch model

@@ -27,7 +27,7 @@ python tools/deployment/mmcls2torchserve.py \
 ## 2. Build `mmcls-serve` docker image
 
 ```shell
-docker build -t mmcls-serve:latest docker/serve/
+docker build -t openprotein-serve:latest docker/serve/
 ```
 
 ## 3. Run `mmcls-serve`
@@ -44,7 +44,7 @@ docker run --rm \
 --gpus device=0 \
 -p8080:8080 -p8081:8081 -p8082:8082 \
 --mount type=bind,source=`realpath ./checkpoints`,target=/home/model-server/model-store \
-mmcls-serve:latest
+openprotein-serve:latest
 ```
 
 ```{note}

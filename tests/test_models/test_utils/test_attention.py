@@ -5,7 +5,7 @@ from unittest.mock import ANY, MagicMock
 import pytest
 import torch
 
-from mmcls.models.utils.attention import ShiftWindowMSA, WindowMSA
+from openprotein.models.utils.attention import ShiftWindowMSA, WindowMSA
 
 
 def get_relative_position_index(window_size):

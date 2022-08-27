@@ -4,10 +4,10 @@ from unittest.mock import patch
 import pytest
 import torch
 
-from mmcls.models.heads import (ClsHead, ConformerHead, DeiTClsHead,
-                                LinearClsHead, MultiLabelClsHead,
-                                MultiLabelLinearClsHead, StackedLinearClsHead,
-                                VisionTransformerClsHead)
+from openprotein.models.heads import (ClsHead, ConformerHead, DeiTClsHead,
+                                      LinearClsHead, MultiLabelClsHead,
+                                      MultiLabelLinearClsHead, StackedLinearClsHead,
+                                      VisionTransformerClsHead)
 
 
 @pytest.mark.parametrize('feat', [torch.rand(4, 10), (torch.rand(4, 10), )])

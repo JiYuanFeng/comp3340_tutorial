@@ -2,7 +2,7 @@
 import pytest
 import torch
 
-from mmcls.models.backbones import RegNet
+from openprotein.models.backbones import RegNet
 
 regnet_test_data = [
     ('regnetx_400mf',

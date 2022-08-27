@@ -6,10 +6,10 @@ from unittest.mock import patch
 import torch
 from mmcv.utils import digit_version
 
-from mmcls.datasets import ImageNet, build_dataloader, build_dataset
-from mmcls.datasets.dataset_wrappers import (ClassBalancedDataset,
-                                             ConcatDataset, KFoldDataset,
-                                             RepeatDataset)
+from openprotein.datasets import ImageNet, build_dataloader, build_dataset
+from openprotein.datasets.dataset_wrappers import (ClassBalancedDataset,
+                                                   ConcatDataset, KFoldDataset,
+                                                   RepeatDataset)
 
 
 class TestDataloaderBuilder():
@@ -20,7 +20,7 @@ class TestDataloaderBuilder():
         cls.samples_per_gpu = 5
         cls.workers_per_gpu = 1
 
-    @patch('mmcls.datasets.builder.get_dist_info', return_value=(0, 1))
+    @patch('openprotein.datasets.builder.get_dist_info', return_value=(0, 1))
     def test_single_gpu(self, _):
         common_cfg = dict(
             dataset=self.data,
@@ -54,7 +54,7 @@ class TestDataloaderBuilder():
         expect = [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6]
         assert all(torch.cat(list(iter(dataloader))) == torch.tensor(expect))
 
-    @patch('mmcls.datasets.builder.get_dist_info', return_value=(0, 1))
+    @patch('openprotein.datasets.builder.get_dist_info', return_value=(0, 1))
     def test_multi_gpu(self, _):
         common_cfg = dict(
             dataset=self.data,
@@ -90,7 +90,7 @@ class TestDataloaderBuilder():
             [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6])
         assert all(torch.cat(list(iter(dataloader))) == expect)
 
-    @patch('mmcls.datasets.builder.get_dist_info', return_value=(1, 2))
+    @patch('openprotein.datasets.builder.get_dist_info', return_value=(1, 2))
     def test_distributed(self, _):
         common_cfg = dict(
             dataset=self.data,

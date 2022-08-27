@@ -10,8 +10,8 @@ import torch
 from mmcv.runner import load_checkpoint, save_checkpoint
 from mmcv.utils.parrots_wrapper import _BatchNorm
 
-from mmcls.models.backbones import SwinTransformer
-from mmcls.models.backbones.swin_transformer import SwinBlock
+from openprotein.models.backbones import SwinTransformer
+from openprotein.models.backbones.swin_transformer import SwinBlock
 from .utils import timm_resize_pos_embed
 
 

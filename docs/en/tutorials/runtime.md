@@ -225,7 +225,7 @@ from .my_hook import MyHook
 - Use `custom_imports` in the config to manually import it
 
 ```python
-custom_imports = dict(imports=['mmcls.core.utils.my_hook'], allow_failed_imports=False)
+custom_imports = dict(imports=['openprotein.core.utils.my_hook'], allow_failed_imports=False)
 ```
 
 ### 3. Modify the config

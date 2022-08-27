@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 from mmcv.utils import build_from_cfg
 
-from mmcls.datasets.builder import PIPELINES
+from openprotein.datasets.builder import PIPELINES
 
 
 def construct_toy_data():

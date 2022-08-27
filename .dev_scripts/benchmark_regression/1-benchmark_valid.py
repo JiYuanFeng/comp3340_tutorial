@@ -13,11 +13,11 @@ from modelindex.load_model_index import load
 from rich.console import Console
 from rich.table import Table
 
-from mmcls.apis import init_model
-from mmcls.core.visualization.image import imshow_infos
-from mmcls.datasets.imagenet import ImageNet
-from mmcls.datasets.pipelines import Compose
-from mmcls.utils import get_root_logger
+from openprotein.apis import init_model
+from openprotein.core.visualization.image import imshow_infos
+from openprotein.datasets.imagenet import ImageNet
+from openprotein.datasets.pipelines import Compose
+from openprotein.utils import get_root_logger
 
 console = Console()
 MMCLS_ROOT = Path(__file__).absolute().parents[2]

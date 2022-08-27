@@ -9,7 +9,7 @@ import mmcv
 import numpy as np
 import pytest
 
-from mmcls.core import visualization as vis
+from openprotein.core import visualization as vis
 
 
 def test_color():

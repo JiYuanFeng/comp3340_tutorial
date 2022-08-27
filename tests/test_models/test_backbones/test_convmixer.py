@@ -2,7 +2,7 @@
 import pytest
 import torch
 
-from mmcls.models.backbones import ConvMixer
+from openprotein.models.backbones import ConvMixer
 
 
 def test_assertion():

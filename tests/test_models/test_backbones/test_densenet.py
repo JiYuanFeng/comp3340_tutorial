@@ -2,7 +2,7 @@
 import pytest
 import torch
 
-from mmcls.models.backbones import DenseNet
+from openprotein.models.backbones import DenseNet
 
 
 def test_assertion():

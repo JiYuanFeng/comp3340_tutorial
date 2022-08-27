@@ -57,7 +57,7 @@ def get_layer_maps(layer_num, with_bn):
 
 
 def convert(src, dst, layer_num, with_bn=False):
-    """Convert keys in torchvision pretrained VGG models to mmcls style."""
+    """Convert keys in torchvision pretrained VGG models to openprotein style."""
 
     # load pytorch model
     assert os.path.isfile(src), f'no checkpoint found at {src}'

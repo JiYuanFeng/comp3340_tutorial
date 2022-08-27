@@ -4,7 +4,7 @@ import argparse
 import mmcv
 from mmcv import Config, DictAction
 
-from mmcls.datasets import build_dataset
+from openprotein.datasets import build_dataset
 
 
 def parse_args():

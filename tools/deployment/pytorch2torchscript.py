@@ -10,7 +10,7 @@ import torch
 from mmcv.runner import load_checkpoint
 from torch import nn
 
-from mmcls.models import build_classifier
+from openprotein.models import build_classifier
 
 torch.manual_seed(3)
 

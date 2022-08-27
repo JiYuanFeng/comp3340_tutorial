@@ -11,16 +11,16 @@ from mmcv import DictAction
 from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
                          wrap_fp16_model)
 
-from mmcls.apis import multi_gpu_test, single_gpu_test
-from mmcls.datasets import build_dataloader, build_dataset
-from mmcls.models import build_classifier
-from mmcls.utils import (auto_select_device, get_root_logger,
-                         setup_multi_processes, wrap_distributed_model,
-                         wrap_non_distributed_model)
+from openprotein.apis import multi_gpu_test, single_gpu_test
+from openprotein.datasets import build_dataloader, build_dataset
+from openprotein.models import build_classifier
+from openprotein.utils import (auto_select_device, get_root_logger,
+                               setup_multi_processes, wrap_distributed_model,
+                               wrap_non_distributed_model)
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='mmcls test model')
+    parser = argparse.ArgumentParser(description='openprotein test model')
     parser.add_argument('config', help='test config file path')
     parser.add_argument('checkpoint', help='checkpoint file')
     parser.add_argument('--out', help='output result file')
@@ -173,7 +173,7 @@ def main():
     if 'CLASSES' in checkpoint.get('meta', {}):
         CLASSES = checkpoint['meta']['CLASSES']
     else:
-        from mmcls.datasets import ImageNet
+        from openprotein.datasets import ImageNet
         warnings.simplefilter('once')
         warnings.warn('Class names are not saved in the checkpoint\'s '
                       'meta data, use imagenet by default.')

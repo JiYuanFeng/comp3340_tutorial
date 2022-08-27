@@ -107,7 +107,7 @@ For more information about other data transformation classes, please refer to [D
    the `__call__` method which takes a dict as input and returns a dict.
 
    ```python
-   from mmcls.datasets import PIPELINES
+   from openprotein.datasets import PIPELINES
 
    @PIPELINES.register_module()
    class MyTransform(object):

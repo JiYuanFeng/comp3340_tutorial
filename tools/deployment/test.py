@@ -7,9 +7,9 @@ import numpy as np
 from mmcv import DictAction
 from mmcv.parallel import MMDataParallel
 
-from mmcls.apis import single_gpu_test
-from mmcls.core.export import ONNXRuntimeClassifier, TensorRTClassifier
-from mmcls.datasets import build_dataloader, build_dataset
+from openprotein.apis import single_gpu_test
+from openprotein.core.export import ONNXRuntimeClassifier, TensorRTClassifier
+from openprotein.datasets import build_dataloader, build_dataset
 
 
 def parse_args():

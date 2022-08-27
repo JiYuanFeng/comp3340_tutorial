@@ -7,8 +7,8 @@ from unittest.mock import MagicMock, patch
 import numpy as np
 import pytest
 
-from mmcls.datasets import (BaseDataset, ClassBalancedDataset, ConcatDataset,
-                            KFoldDataset, RepeatDataset)
+from openprotein.datasets import (BaseDataset, ClassBalancedDataset, ConcatDataset,
+                                  KFoldDataset, RepeatDataset)
 
 
 def mock_evaluate(results,

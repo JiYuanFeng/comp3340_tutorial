@@ -228,7 +228,7 @@ __all__ = ['MyHook']
 - 使用配置文件中的 `custom_imports` 变量手动导入
 
 ```python
-custom_imports = dict(imports=['mmcls.core.utils.my_hook'], allow_failed_imports=False)
+custom_imports = dict(imports=['openprotein.core.utils.my_hook'], allow_failed_imports=False)
 ```
 
 ### 修改配置

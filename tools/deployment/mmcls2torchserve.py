@@ -70,7 +70,7 @@ def mmcls2torchserve(
 
 def parse_args():
     parser = ArgumentParser(
-        description='Convert mmcls models to TorchServe `.mar` format.')
+        description='Convert openprotein models to TorchServe `.mar` format.')
     parser.add_argument('config', type=str, help='config file path')
     parser.add_argument('checkpoint', type=str, help='checkpoint file path')
     parser.add_argument(

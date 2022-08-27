@@ -14,9 +14,9 @@ import mmcv
 import numpy as np
 from mmcv import Config, DictAction, ProgressBar
 
-from mmcls.core import visualization as vis
-from mmcls.datasets.builder import PIPELINES, build_dataset, build_from_cfg
-from mmcls.models.utils import to_2tuple
+from openprotein.core import visualization as vis
+from openprotein.datasets.builder import PIPELINES, build_dataset, build_from_cfg
+from openprotein.models.utils import to_2tuple
 
 # text style
 bright_style, reset_style = '\x1b[1m', '\x1b[0m'
@@ -109,7 +109,7 @@ def parse_args():
         nargs='+',
         action=DictAction,
         help='custom options for display. key-value pair in xxx=yyy. options '
-        'in `mmcls.core.visualization.ImshowInfosContextManager.put_img_infos`'
+        'in `openprotein.core.visualization.ImshowInfosContextManager.put_img_infos`'
     )
     args = parser.parse_args()
 

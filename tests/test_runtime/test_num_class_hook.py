@@ -9,8 +9,8 @@ import torch
 from mmcv.runner import obj_from_dict
 from torch.utils.data import DataLoader, Dataset
 
-from mmcls.core.hook import ClassNumCheckHook
-from mmcls.models.heads.base_head import BaseHead
+from openprotein.core.hook import ClassNumCheckHook
+from openprotein.models.heads.base_head import BaseHead
 
 
 class ExampleDataset(Dataset):

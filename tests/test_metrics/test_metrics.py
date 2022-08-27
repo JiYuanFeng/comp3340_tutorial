@@ -4,8 +4,8 @@ from functools import partial
 import pytest
 import torch
 
-from mmcls.core import average_performance, mAP
-from mmcls.models.losses.accuracy import Accuracy, accuracy_numpy
+from openprotein.core import average_performance, mAP
+from openprotein.models.losses.accuracy import Accuracy, accuracy_numpy
 
 
 def test_mAP():

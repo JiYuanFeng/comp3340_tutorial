@@ -5,8 +5,8 @@ import os.path as osp
 import mmcv
 from mmcv import DictAction
 
-from mmcls.datasets import build_dataset
-from mmcls.models import build_classifier
+from openprotein.datasets import build_dataset
+from openprotein.models import build_classifier
 
 
 def parse_args():

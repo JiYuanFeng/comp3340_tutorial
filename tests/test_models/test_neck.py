@@ -2,8 +2,8 @@
 import pytest
 import torch
 
-from mmcls.models.necks import (GeneralizedMeanPooling, GlobalAveragePooling,
-                                HRFuseScales)
+from openprotein.models.necks import (GeneralizedMeanPooling, GlobalAveragePooling,
+                                      HRFuseScales)
 
 
 def test_gap_neck():

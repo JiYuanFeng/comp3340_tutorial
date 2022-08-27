@@ -12,12 +12,12 @@ import torch.distributed as dist
 from mmcv import Config, DictAction
 from mmcv.runner import get_dist_info, init_dist
 
-from mmcls import __version__
-from mmcls.apis import init_random_seed, set_random_seed, train_model
-from mmcls.datasets import build_dataset
-from mmcls.models import build_classifier
-from mmcls.utils import (auto_select_device, collect_env, get_root_logger,
-                         setup_multi_processes)
+from openprotein import __version__
+from openprotein.apis import init_random_seed, set_random_seed, train_model
+from openprotein.datasets import build_dataset
+from openprotein.models import build_classifier
+from openprotein.utils import (auto_select_device, collect_env, get_root_logger,
+                               setup_multi_processes)
 
 
 def parse_args():
@@ -181,7 +181,7 @@ def main():
         val_dataset.pipeline = cfg.data.train.pipeline
         datasets.append(build_dataset(val_dataset))
 
-    # save mmcls version, config file content and class names in
+    # save openprotein version, config file content and class names in
     # runner as meta data
     meta.update(
         dict(

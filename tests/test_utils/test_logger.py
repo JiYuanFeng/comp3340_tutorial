@@ -5,7 +5,7 @@ import tempfile
 
 import mmcv.utils.logging
 
-from mmcls.utils import get_root_logger, load_json_log
+from openprotein.utils import get_root_logger, load_json_log
 
 
 def test_get_root_logger():

@@ -13,11 +13,11 @@ import torch
 from mmcv import Config, DictAction
 from mmcv.runner import get_dist_info, init_dist
 
-from mmcls import __version__
-from mmcls.apis import init_random_seed, set_random_seed, train_model
-from mmcls.datasets import build_dataset
-from mmcls.models import build_classifier
-from mmcls.utils import collect_env, get_root_logger, load_json_log
+from openprotein import __version__
+from openprotein.apis import init_random_seed, set_random_seed, train_model
+from openprotein.datasets import build_dataset
+from openprotein.models import build_classifier
+from openprotein.utils import collect_env, get_root_logger, load_json_log
 
 TEST_METRICS = ('precision', 'recall', 'f1_score', 'support', 'mAP', 'CP',
                 'CR', 'CF1', 'OP', 'OR', 'OF1', 'accuracy')

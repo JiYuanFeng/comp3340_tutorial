@@ -79,7 +79,7 @@ git checkout dev
 Just install with pip.
 
 ```shell
-pip install mmcls
+pip install openprotein
 ```
 
 ## Verify the installation
@@ -89,7 +89,7 @@ To verify whether MMClassification is installed correctly, we provide some sampl
 **Step 1.** We need to download config and checkpoint files.
 
 ```shell
-mim download mmcls --config resnet50_8xb32_in1k --dest .
+mim download openprotein --config resnet50_8xb32_in1k --dest .
 ```
 
 **Step 2.** Verify the inference demo.
@@ -107,7 +107,7 @@ the demo image with these predictions in a window.
 Option (b). If you install mmcls as a python package, open you python interpreter and copy&paste the following codes.
 
 ```python
-from mmcls.apis import init_model, inference_model
+from openprotein.apis import init_model, inference_model
 
 config_file = 'resnet50_8xb32_in1k.py'
 checkpoint_file = 'resnet50_8xb32_in1k_20210831-ea4938fc.pth'
@@ -186,8 +186,9 @@ commands.
 **Step 3.** Verification.
 
 ```python
-import mmcls
-print(mmcls.__version__)
+import openprotein
+
+print(openprotein.__version__)
 # Example output: 0.23.0 or newer
 ```
 

@@ -8,12 +8,12 @@ import torch
 def convert_weights(weight):
     """Weight Converter.
 
-    Converts the weights from timm to mmcls
+    Converts the weights from timm to openprotein
 
     Args:
         weight (dict): weight dict from timm
 
-    Returns: converted weight dict for mmcls
+    Returns: converted weight dict for openprotein
     """
     result = dict()
     result['meta'] = dict()

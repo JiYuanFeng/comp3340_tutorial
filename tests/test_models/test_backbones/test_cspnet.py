@@ -7,9 +7,9 @@ import torch
 from mmcv.cnn import ConvModule
 from mmcv.utils.parrots_wrapper import _BatchNorm
 
-from mmcls.models.backbones import CSPDarkNet, CSPResNet, CSPResNeXt
-from mmcls.models.backbones.cspnet import (CSPNet, DarknetBottleneck,
-                                           ResNetBottleneck, ResNeXtBottleneck)
+from openprotein.models.backbones import CSPDarkNet, CSPResNet, CSPResNeXt
+from openprotein.models.backbones.cspnet import (CSPNet, DarknetBottleneck,
+                                                 ResNetBottleneck, ResNeXtBottleneck)
 
 
 class TestCSPNet(TestCase):

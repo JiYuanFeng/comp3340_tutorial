@@ -3,7 +3,7 @@ import pytest
 import torch
 from mmcv.utils import digit_version
 
-from mmcls.models.utils import channel_shuffle, is_tracing, make_divisible
+from openprotein.models.utils import channel_shuffle, is_tracing, make_divisible
 
 
 def test_make_divisible():

@@ -121,7 +121,7 @@ venv.bak/
 *.pkl.json
 *.log.json
 /work_dirs
-/mmcls/.mim
+/openprotein/.mim
 .DS_Store
 
 # Pytorch

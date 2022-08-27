@@ -4,43 +4,43 @@ from mmcv import Config
 from mmdet.apis import inference_detector
 from mmdet.models import build_detector
 
-from mmcls.models import (MobileNetV2, MobileNetV3, RegNet, ResNeSt, ResNet,
-                          ResNeXt, SEResNet, SEResNeXt, SwinTransformer,
-                          TIMMBackbone)
-from mmcls.models.backbones.timm_backbone import timm
+from openprotein.models import (MobileNetV2, MobileNetV3, RegNet, ResNeSt, ResNet,
+                                ResNeXt, SEResNet, SEResNeXt, SwinTransformer,
+                                TIMMBackbone)
+from openprotein.models.backbones.timm_backbone import timm
 
 backbone_configs = dict(
     mobilenetv2=dict(
         backbone=dict(
-            type='mmcls.MobileNetV2',
+            type='openprotein.MobileNetV2',
             widen_factor=1.0,
             norm_cfg=dict(type='GN', num_groups=2, requires_grad=True),
             out_indices=(4, 7)),
         out_channels=[96, 1280]),
     mobilenetv3=dict(
         backbone=dict(
-            type='mmcls.MobileNetV3',
+            type='openprotein.MobileNetV3',
             norm_cfg=dict(type='GN', num_groups=2, requires_grad=True),
             out_indices=range(7, 12)),
         out_channels=[48, 48, 96, 96, 96]),
     regnet=dict(
-        backbone=dict(type='mmcls.RegNet', arch='regnetx_400mf'),
+        backbone=dict(type='openprotein.RegNet', arch='regnetx_400mf'),
         out_channels=384),
     resnext=dict(
         backbone=dict(
-            type='mmcls.ResNeXt', depth=50, groups=32, width_per_group=4),
+            type='openprotein.ResNeXt', depth=50, groups=32, width_per_group=4),
         out_channels=2048),
     resnet=dict(
-        backbone=dict(type='mmcls.ResNet', depth=50), out_channels=2048),
+        backbone=dict(type='openprotein.ResNet', depth=50), out_channels=2048),
     seresnet=dict(
-        backbone=dict(type='mmcls.SEResNet', depth=50), out_channels=2048),
+        backbone=dict(type='openprotein.SEResNet', depth=50), out_channels=2048),
     seresnext=dict(
         backbone=dict(
-            type='mmcls.SEResNeXt', depth=50, groups=32, width_per_group=4),
+            type='openprotein.SEResNeXt', depth=50, groups=32, width_per_group=4),
         out_channels=2048),
     resnest=dict(
         backbone=dict(
-            type='mmcls.ResNeSt',
+            type='openprotein.ResNeSt',
             depth=50,
             radix=2,
             reduction_factor=4,
@@ -48,7 +48,7 @@ backbone_configs = dict(
         out_channels=[256, 512, 1024, 2048]),
     swin=dict(
         backbone=dict(
-            type='mmcls.SwinTransformer',
+            type='openprotein.SwinTransformer',
             arch='small',
             drop_path_rate=0.2,
             img_size=800,
@@ -56,7 +56,7 @@ backbone_configs = dict(
         out_channels=[384, 768]),
     timm_efficientnet=dict(
         backbone=dict(
-            type='mmcls.TIMMBackbone',
+            type='openprotein.TIMMBackbone',
             model_name='efficientnet_b1',
             features_only=True,
             pretrained=False,
@@ -64,7 +64,7 @@ backbone_configs = dict(
         out_channels=[24, 40, 112, 320]),
     timm_resnet=dict(
         backbone=dict(
-            type='mmcls.TIMMBackbone',
+            type='openprotein.TIMMBackbone',
             model_name='resnet50',
             features_only=True,
             pretrained=False,

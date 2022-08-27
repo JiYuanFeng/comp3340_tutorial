@@ -9,7 +9,7 @@ from mmcv.utils import get_logger
 from mmcv.utils.logging import print_log
 from torch.utils.data import DataLoader, Dataset
 
-from mmcls.core.hook import PreciseBNHook
+from openprotein.core.hook import PreciseBNHook
 
 
 class ExampleDataset(Dataset):

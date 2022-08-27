@@ -14,7 +14,7 @@ from mmcv.runner import (EpochBasedRunner, IterBasedRunner, IterLoader,
                          build_optimizer)
 from torch.utils.data import DataLoader
 
-from mmcls.utils import get_root_logger
+from openprotein.utils import get_root_logger
 
 
 class DummyEpochBasedRunner(EpochBasedRunner):
@@ -308,7 +308,7 @@ def main():
     batch_size = cfg.data.samples_per_gpu * args.ngpus
 
     if args.dataset_size is None and by_epoch:
-        from mmcls.datasets.builder import build_dataset
+        from openprotein.datasets.builder import build_dataset
         dataset_size = len(build_dataset(cfg.data.train))
     else:
         dataset_size = args.dataset_size or batch_size

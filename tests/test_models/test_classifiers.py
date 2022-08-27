@@ -7,8 +7,8 @@ import numpy as np
 import torch
 from mmcv import ConfigDict
 
-from mmcls.models import CLASSIFIERS
-from mmcls.models.classifiers import ImageClassifier
+from openprotein.models import CLASSIFIERS
+from openprotein.models.classifiers import ImageClassifier
 
 
 def test_image_classifier():

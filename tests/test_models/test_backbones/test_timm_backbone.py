@@ -4,7 +4,7 @@ import torch
 from torch import nn
 from torch.nn.modules.batchnorm import _BatchNorm
 
-from mmcls.models.backbones import TIMMBackbone
+from openprotein.models.backbones import TIMMBackbone
 
 
 def check_norm_state(modules, train_state):

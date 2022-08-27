@@ -281,14 +281,14 @@ To find the above module defined above, this module should be imported into the 
   Create the `mmcls/core/optimizer` folder and the `mmcls/core/optimizer/__init__.py` file if they don't exist. The newly defined module should be imported in `mmcls/core/optimizer/__init__.py` and `mmcls/core/__init__.py` so that the registry will find the new module and add it:
 
 ```python
-# In mmcls/core/optimizer/__init__.py
+# In openprotein/core/optimizer/__init__.py
 from .my_optimizer import MyOptimizer # MyOptimizer maybe other class name
 
 __all__ = ['MyOptimizer']
 ```
 
 ```python
-# In mmcls/core/__init__.py
+# In openprotein/core/__init__.py
 ...
 from .optimizer import *  # noqa: F401, F403
 ```
@@ -296,7 +296,7 @@ from .optimizer import *  # noqa: F401, F403
 - Use `custom_imports` in the config to manually import it
 
 ```python
-custom_imports = dict(imports=['mmcls.core.optimizer.my_optimizer'], allow_failed_imports=False)
+custom_imports = dict(imports=['openprotein.core.optimizer.my_optimizer'], allow_failed_imports=False)
 ```
 
 The module `mmcls.core.optimizer.my_optimizer` will be imported at the beginning of the program and the class `MyOptimizer` is then automatically registered.
