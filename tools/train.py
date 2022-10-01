@@ -93,7 +93,6 @@ def main():
     cfg = Config.fromfile(args.config)
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
-
     # set multi-process settings
     setup_multi_processes(cfg)
 
@@ -186,8 +185,7 @@ def main():
     meta.update(
         dict(
             mmcls_version=__version__,
-            config=cfg.pretty_text,
-            CLASSES=datasets[0].CLASSES))
+            config=cfg.pretty_text))
 
     # add an attribute for visualization convenience
     train_model(
