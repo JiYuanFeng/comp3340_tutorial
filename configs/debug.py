@@ -1,7 +1,12 @@
 model = dict(
-    type='ImageClassifier',
-    backbone=dict(type='VAN', arch='base', drop_path_rate=0.1),
-    neck=dict(type='GlobalAveragePooling'),
+    type='GraphClassifier',
+    backbone=dict(type='ProteinConvolutionalNetwork',
+                  input_dim=21,
+                  hidden_dims=[1024, 1024],
+                  kernel_size=5,
+                  padding=2
+                  ),
+    # neck=dict(type='GlobalAveragePooling'),
     head=dict(
         type='LinearClsHead',
         num_classes=1000,
@@ -174,11 +179,29 @@ data = dict(
         type=dataset_type,
         split="test",
         path=data_prefix,
-        atom_feature="null",
-        bond_feature="null",
-        transform=dict(class="Compose"),
-
-    ))
+        atom_feature=None,
+        bond_feature=None,
+        pipeline=[
+            dict(type="ProteinView",
+                 view="residue"),
+            dict(
+                type="ReMap",
+                old_keys=['scaled_effect1'],
+                new_keys=['gt_label']
+            )
+        ],
+    ),
+    # val=dict(
+    #     type=dataset_type,
+    #     split="valid",
+    #     path=data_prefix,
+    #     atom_feature=None,
+    #     bond_feature=None,
+    #     pipeline=[dict(
+    #         type="ProteinView",
+    #         view="residue"
+    #     )])
+)
 
     # val=dict(
     #     type=dataset_type,

@@ -27,62 +27,62 @@ class BaseClassifier(BaseModule, metaclass=ABCMeta):
         return hasattr(self, 'head') and self.head is not None
 
     @abstractmethod
-    def extract_feat(self, imgs, stage=None):
+    def extract_feat(self, graphs, stage=None):
         pass
 
-    def extract_feats(self, imgs, stage=None):
-        assert isinstance(imgs, Sequence)
+    def extract_feats(self, graphs, stage=None):
+        assert isinstance(graphs, Sequence)
         kwargs = {} if stage is None else {'stage': stage}
-        for img in imgs:
-            yield self.extract_feat(img, **kwargs)
+        for graph in graphs:
+            yield self.extract_feat(graph, **kwargs)
 
     @abstractmethod
-    def forward_train(self, imgs, **kwargs):
+    def forward_train(self, graphs, **kwargs):
         """
         Args:
-            img (list[Tensor]): List of tensors of shape (1, C, H, W).
+            graph (list[Tensor]): List of tensors of shape (1, C, H, W).
                 Typically these should be mean centered and std scaled.
             kwargs (keyword arguments): Specific to concrete implementation.
         """
         pass
 
     @abstractmethod
-    def simple_test(self, img, **kwargs):
+    def simple_test(self, graph, **kwargs):
         pass
 
-    def forward_test(self, imgs, **kwargs):
+    def forward_test(self, graphs, **kwargs):
         """
         Args:
-            imgs (List[Tensor]): the outer list indicates test-time
+            graphs (List[Tensor]): the outer list indicates test-time
                 augmentations and inner Tensor should have a shape NxCxHxW,
                 which contains all images in the batch.
         """
-        if isinstance(imgs, torch.Tensor):
-            imgs = [imgs]
-        for var, name in [(imgs, 'imgs')]:
+        if isinstance(graphs, torch.Tensor):
+            graphs = [graphs]
+        for var, name in [(graphs, 'graphs')]:
             if not isinstance(var, list):
                 raise TypeError(f'{name} must be a list, but got {type(var)}')
 
-        if len(imgs) == 1:
-            return self.simple_test(imgs[0], **kwargs)
+        if len(graphs) == 1:
+            return self.simple_test(graphs[0], **kwargs)
         else:
             raise NotImplementedError('aug_test has not been implemented')
 
-    @auto_fp16(apply_to=('img', ))
-    def forward(self, img, return_loss=True, **kwargs):
+    @auto_fp16(apply_to=('graph', ))
+    def forward(self, graph, return_loss=True, **kwargs):
         """Calls either forward_train or forward_test depending on whether
         return_loss=True.
 
         Note this setting will change the expected inputs. When
-        `return_loss=True`, img and img_meta are single-nested (i.e. Tensor and
-        List[dict]), and when `resturn_loss=False`, img and img_meta should be
+        `return_loss=True`, graph and graph_meta are single-nested (i.e. Tensor and
+        List[dict]), and when `resturn_loss=False`, graph and graph_meta should be
         double nested (i.e.  List[Tensor], List[List[dict]]), with the outer
         list indicating test time augmentations.
         """
         if return_loss:
-            return self.forward_train(img, **kwargs)
+            return self.forward_train(graph, **kwargs)
         else:
-            return self.forward_test(img, **kwargs)
+            return self.forward_test(graph, **kwargs)
 
     def _parse_losses(self, losses):
         log_vars = OrderedDict()
@@ -140,7 +140,7 @@ class BaseClassifier(BaseModule, metaclass=ABCMeta):
         loss, log_vars = self._parse_losses(losses)
 
         outputs = dict(
-            loss=loss, log_vars=log_vars, num_samples=len(data['img'].data))
+            loss=loss, log_vars=log_vars, num_samples=len(data['graph'].data))
 
         return outputs
 
@@ -171,12 +171,12 @@ class BaseClassifier(BaseModule, metaclass=ABCMeta):
         loss, log_vars = self._parse_losses(losses)
 
         outputs = dict(
-            loss=loss, log_vars=log_vars, num_samples=len(data['img'].data))
+            loss=loss, log_vars=log_vars, num_samples=len(data['graph'].data))
 
         return outputs
 
     def show_result(self,
-                    img,
+                    graph,
                     result,
                     text_color='white',
                     font_scale=0.5,
@@ -186,11 +186,11 @@ class BaseClassifier(BaseModule, metaclass=ABCMeta):
                     win_name='',
                     wait_time=0,
                     out_file=None):
-        """Draw `result` over `img`.
+        """Draw `result` over `graph`.
 
         Args:
-            img (str or ndarray): The image to be displayed.
-            result (dict): The classification results to draw over `img`.
+            graph (str or ndarray): The image to be displayed.
+            result (dict): The classification results to draw over `graph`.
             text_color (str or tuple or :obj:`Color`): Color of texts.
             font_scale (float): Font scales of texts.
             row_width (int): width between each row of results on the image.
@@ -204,13 +204,13 @@ class BaseClassifier(BaseModule, metaclass=ABCMeta):
                 Default: None.
 
         Returns:
-            img (ndarray): Image with overlaid results.
+            graph (ndarray): Image with overlaid results.
         """
-        img = mmcv.imread(img)
-        img = img.copy()
+        graph = mmcv.imread(graph)
+        graph = graph.copy()
 
-        img = imshow_infos(
-            img,
+        graph = imshow_infos(
+            graph,
             result,
             text_color=text_color,
             font_size=int(font_scale * 50),
@@ -221,4 +221,4 @@ class BaseClassifier(BaseModule, metaclass=ABCMeta):
             wait_time=wait_time,
             out_file=out_file)
 
-        return img
+        return graph

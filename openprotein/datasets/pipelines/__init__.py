@@ -5,11 +5,12 @@ from .auto_augment import (AutoAugment, AutoContrast, Brightness,
                            Solarize, SolarizeAdd, Translate)
 from .compose import Compose
 from .formatting import (Collect, ImageToTensor, ToNumpy, ToPIL, ToTensor,
-                         Transpose, to_tensor)
+                         Transpose, to_tensor, ReMap)
 from .loading import LoadImageFromFile
 from .transforms import (CenterCrop, ColorJitter, Lighting, Normalize, Pad,
                          RandomCrop, RandomErasing, RandomFlip,
                          RandomGrayscale, RandomResizedCrop, Resize)
+from .torchdrug import ProteinView
 
 __all__ = [
     'Compose', 'to_tensor', 'ToTensor', 'ImageToTensor', 'ToPIL', 'ToNumpy',
@@ -18,5 +19,5 @@ __all__ = [
     'RandomGrayscale', 'Shear', 'Translate', 'Rotate', 'Invert',
     'ColorTransform', 'Solarize', 'Posterize', 'AutoContrast', 'Equalize',
     'Contrast', 'Brightness', 'Sharpness', 'AutoAugment', 'SolarizeAdd',
-    'Cutout', 'RandAugment', 'Lighting', 'ColorJitter', 'RandomErasing', 'Pad'
+    'Cutout', 'RandAugment', 'Lighting', 'ColorJitter', 'RandomErasing', 'Pad', 'ProteinView', "ReMap"
 ]

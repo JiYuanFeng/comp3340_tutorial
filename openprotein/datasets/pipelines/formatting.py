@@ -193,3 +193,19 @@ class ToHalf(object):
             else:
                 results[k] = results[k].astype(np.float16)
         return results
+
+
+@PIPELINES.register_module()
+class ReMap(object):
+    def __init__(self, old_keys, new_keys):
+        assert isinstance(old_keys, list)
+        assert isinstance(new_keys, list)
+        assert len(old_keys) == len(new_keys)
+        self.old_keys = old_keys
+        self.new_keys = new_keys
+
+    def __call__(self, results):
+        for ok, nk in zip(self.old_keys, self.new_keys):
+            if ok!=nk:
+                results[nk] = results.pop(ok)
+        return results

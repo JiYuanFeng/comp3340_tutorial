@@ -3,6 +3,7 @@ import copy
 import platform
 import random
 from functools import partial
+from typing import Mapping, Sequence
 
 import numpy as np
 import torch
@@ -10,6 +11,44 @@ from mmcv.parallel import collate
 from mmcv.runner import get_dist_info
 from mmcv.utils import Registry, build_from_cfg, digit_version
 from torch.utils.data import DataLoader
+from torchdrug import data
+
+def graph_collate(batch, samples_per_gpu=1):
+    """
+    Convert any list of same nested container into a container of tensors.
+
+    For instances of :class:`data.Graph <torchdrug.data.Graph>`, they are collated
+    by :meth:`data.Graph.pack <torchdrug.data.Graph.pack>`.
+
+    Parameters:
+        batch (list): list of samples with the same nested container
+    """
+    elem = batch[0]
+    if isinstance(elem, torch.Tensor):
+        out = None
+        if torch.utils.data.get_worker_info() is not None:
+            numel = sum([x.numel() for x in batch])
+            storage = elem.storage()._new_shared(numel)
+            out = elem.new(storage)
+        return torch.stack(batch, 0, out=out)
+    elif isinstance(elem, float):
+        return torch.tensor(batch, dtype=torch.float)
+    elif isinstance(elem, int):
+        return torch.tensor(batch)
+    elif isinstance(elem, (str, bytes)):
+        return batch
+    elif isinstance(elem, data.Graph):
+        return elem.pack(batch)
+    elif isinstance(elem, Mapping):
+        return {key: graph_collate([d[key] for d in batch]) for key in elem}
+    elif isinstance(elem, Sequence):
+        it = iter(batch)
+        elem_size = len(next(it))
+        if not all(len(elem) == elem_size for elem in it):
+            raise RuntimeError('Each element in list of batch should be of equal size')
+        return [graph_collate(samples) for samples in zip(*batch)]
+
+    raise TypeError("Can't collate data with type `%s`" % type(elem))
 
 try:
     from mmcv.utils import IS_IPU_AVAILABLE
@@ -158,7 +197,7 @@ def build_dataloader(dataset,
             batch_size=batch_size,
             sampler=sampler,
             num_workers=num_workers,
-            collate_fn=partial(collate, samples_per_gpu=samples_per_gpu),
+            collate_fn=partial(graph_collate, samples_per_gpu=samples_per_gpu),
             pin_memory=pin_memory,
             shuffle=shuffle,
             worker_init_fn=init_fn,
